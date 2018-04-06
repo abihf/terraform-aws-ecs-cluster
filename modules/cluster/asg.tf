@@ -19,12 +19,6 @@ resource "aws_autoscaling_group" "asg" {
   }
 
   tag {
-    key                 = "Cluster"
-    value               = "${var.cluster_name}"
-    propagate_at_launch = "true"
-  }
-
-  tag {
     key                 = "Service"
     value               = "${var.cluster_name}"
     propagate_at_launch = "true"
