@@ -12,7 +12,9 @@ jobs:
           command: apk add -U make
       - run:
           name: terraform init
-          command: terraform init -input=false
+          command: >
+            terraform init -input=false
+            terraform get
       - run:
           name: Validate Terraform configurations
           command: make validate
