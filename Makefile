@@ -1,3 +1,4 @@
+.PHONY: autoformat validate check-format
 
 autoformat:
 	terraform fmt
@@ -9,12 +10,7 @@ validate:
 	done
 
 check-format:
-	if [[ -n "$(terraform fmt -write=false)" ]]; then \
-		echo "Some terraform files need be formatted, run 'terraform fmt' to fix"; \
-		exit 1; \
-	else \
-		echo "OK"; \
-	fi
-
-lint:
-	tflint
+	find . -type f -name "*.tf" -exec dirname {} \; | sort -u | while read m; do \
+		echo -n "Checking '$$m': "; \
+		(terraform fmt -write=false --diff=true --check=true "$$m" && echo "√") || exit 1 ; \
+	done
