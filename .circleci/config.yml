@@ -21,12 +21,3 @@ jobs:
       - run:
           name: Check if Terraform configurations are properly formatted
           command: make check-format
-      - run:
-          name: Install tflint
-          command: |
-            curl -L -o /tmp/tflint.zip https://github.com/wata727/tflint/releases/download/v0.5.4/tflint_linux_amd64.zip
-            unzip /tmp/tflint.zip -d /usr/local/bin
-      - run:
-          name: Check Terraform configurations with tflint
-          command: tflint --fast
-
