@@ -17,6 +17,7 @@ variable "product_domain" {
 
 variable "ec2_ami" {
   description = "AMI that used by launch configuration"
+  type        = "string"
   default     = ""
 }
 
@@ -29,6 +30,7 @@ variable "instance_type" {
 variable "min_size" {
   description = "Minimum number of running ECS container instances"
   type        = "string"
+  default     = "1"
 }
 
 variable "max_size" {
@@ -43,6 +45,7 @@ variable "key_name" {
 
 variable "instance_sg" {
   description = "Additional security group for ECS container instances"
+  type        = "list"
   default     = []
 }
 
@@ -57,6 +60,7 @@ variable "subnets" {
 }
 
 variable "log_retention" {
-  default     = 14
   description = "number of days to retain log events in cloudwatch"
+  type        = "string"
+  default     = 14
 }

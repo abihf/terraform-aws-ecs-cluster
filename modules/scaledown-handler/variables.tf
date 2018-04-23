@@ -11,15 +11,15 @@ variable "cluster_name" {
 variable "environment" {
   description = "An environment tag in which your service will deployed and executed, i.e. staging, production, etc."
   type        = "string"
-  default     = "staging"
 }
 
 variable "product_domain" {
   description = "Product domain name for tagging"
-  default     = ""
+  type        = "string"
 }
 
 variable "log_retention" {
-  default     = 14
   description = "number of days to retain log events in cloudwatch"
+  type        = "string"
+  default     = 14
 }

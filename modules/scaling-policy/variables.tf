@@ -10,10 +10,12 @@ variable "asg_name" {
 
 variable "scaling_target_cpu_reservation" {
   description = "Average CPU reservation metric for scaling policy"
+  type        = "string"
   default     = 75
 }
 
 variable "scaling_target_memory_reservation" {
   description = "Average Memory reservation metric for scaling policy"
+  type        = "string"
   default     = 75
 }

@@ -20,7 +20,6 @@ resource "aws_launch_configuration" "launch" {
 # CLOUD INIT
 
 data "template_cloudinit_config" "config" {
-  # gzip          = true
   base64_encode = true
 
   part {

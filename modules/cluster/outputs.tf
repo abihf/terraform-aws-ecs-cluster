@@ -24,17 +24,21 @@ output "launch_config" {
 }
 
 output "instance_sg" {
-  value = "${aws_security_group.instance.id}"
+  description = "Security group of the launch configuration"
+  value       = "${aws_security_group.instance.id}"
 }
 
 output "instance_profile" {
-  value = "${aws_iam_instance_profile.ecs.arn}"
+  description = "Instance profile that associated with launch config"
+  value       = "${aws_iam_instance_profile.ecs.arn}"
 }
 
 output "instance_role" {
-  value = "${aws_iam_role.ecs.arn}"
+  description = "IAM role that associated with instance profile"
+  value       = "${aws_iam_role.ecs.arn}"
 }
 
 output "shared_lb_sg" {
-  value = "${aws_security_group.lb.id}"
+  description = "Precreated security group that should be used by service load balancer"
+  value       = "${aws_security_group.lb.id}"
 }
