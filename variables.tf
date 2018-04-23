@@ -12,12 +12,11 @@ variable "environment" {
 variable "product_domain" {
   description = "Product domain name for tagging"
   type        = "string"
-  default     = ""
 }
 
 variable "ec2_ami" {
   description = "AMI that used by launch configuration"
-  default     = ""
+  type        = "string"
 }
 
 variable "instance_type" {
