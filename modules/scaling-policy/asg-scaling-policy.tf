@@ -1,5 +1,5 @@
-resource "aws_autoscaling_policy" "policy" {
-  name                   = "${var.cluster_name}-ecs-scale-policy"
+resource "aws_autoscaling_policy" "cpu" {
+  name                   = "${var.cluster_name}-cpu-policy"
   autoscaling_group_name = "${var.asg_name}"
   policy_type            = "TargetTrackingScaling"
 
@@ -10,12 +10,19 @@ resource "aws_autoscaling_policy" "policy" {
       statistic   = "Average"
 
       metric_dimension {
-        ClusterName = "${var.cluster_name}"
+        name  = "ClusterName"
+        value = "${var.cluster_name}"
       }
     }
 
     target_value = "${var.scaling_target_cpu_reservation}"
   }
+}
+
+resource "aws_autoscaling_policy" "memory" {
+  name                   = "${var.cluster_name}-memory-policy"
+  autoscaling_group_name = "${var.asg_name}"
+  policy_type            = "TargetTrackingScaling"
 
   target_tracking_configuration {
     customized_metric_specification {
@@ -24,7 +31,8 @@ resource "aws_autoscaling_policy" "policy" {
       statistic   = "Average"
 
       metric_dimension {
-        ClusterName = "${var.cluster_name}"
+        name  = "ClusterName"
+        value = "${var.cluster_name}"
       }
     }
 

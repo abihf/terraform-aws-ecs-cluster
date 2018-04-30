@@ -6,7 +6,6 @@ variable "cluster_name" {
 variable "environment" {
   description = "An environment tag in which your service will deployed and executed, i.e. staging, production, etc."
   type        = "string"
-  default     = "staging"
 }
 
 variable "product_domain" {

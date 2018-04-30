@@ -11,11 +11,8 @@ jobs:
           name: install make
           command: apk add -U make
       - run:
-          name: terraform init
-          command:  terraform init -input=false
-      - run:
           name: Validate Terraform configurations
-          command: make validate
+          command: make -s validate
       - run:
           name: Check if Terraform configurations are properly formatted
-          command: make check-format
+          command: make -s check-format
