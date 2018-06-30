@@ -5,6 +5,9 @@ jobs:
     docker:
       - image: hashicorp/terraform:light
     working_directory: /terraform
+    environment:
+      AWS_REGION: ap-southeast-1
+
     steps:
       - checkout
       - run:
